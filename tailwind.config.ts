@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,13 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      boxShadow: {
+        neon: '0 0 5px theme("colors.purple.200"), 0 0 20px theme("colors.purple.700")',
       },
     },
   },
-  plugins: [],
-}
-export default config
+  // eslint-disable-next-line import/no-extraneous-dependencies, global-require
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['dark'],
+  },
+};
+export default config;
