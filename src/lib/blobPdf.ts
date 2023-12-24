@@ -1,12 +1,14 @@
 function dataURItoBlob(dataURI: string, mimeType: string): Blob {
   // Pisahkan data URI menjadi metadata dan data aktual
-  const [_metadata, actualData] = dataURI.split(',');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [metadata, actualData] = dataURI.split(',');
 
   // Convert base64 ke data biner
   const byteString = atob(actualData);
   const arrayBuffer = new ArrayBuffer(byteString.length);
   const int8Array = new Uint8Array(arrayBuffer);
 
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < byteString.length; i++) {
     int8Array[i] = byteString.charCodeAt(i);
   }
