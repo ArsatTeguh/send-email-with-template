@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Next js',
-  description: 'description',
+  title: 'Template Email',
+  description: 'Web pengirim pesan Email mulai dari teks sampai file, dengan berbagai template yang disediakan',
 };
 
 export default function RootLayout({

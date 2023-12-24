@@ -11,11 +11,15 @@ export type PropsInput = {
   place: string;
   errors?: any;
   type?: string;
+  require: boolean
 };
 
 export type Tinput = {
-  name: string;
   email: string;
+  ccEmail: string;
+  job: string;
+  media: string;
+  file: File | Blob | string | Buffer;
 };
 
 export type IPropsLogin = {

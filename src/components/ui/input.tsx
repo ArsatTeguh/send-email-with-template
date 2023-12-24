@@ -8,28 +8,43 @@ function Input(props: PropsInput) {
     register,
     place,
     errors,
-    type,
+    require,
   } = props;
   return (
-    <div className="flex flex-col w-full gap-1 relative">
-      <div className="flex flex-col gap-2">
-        <label htmlFor={channel} className="text-[16px] font-[500]">
+    <div className="flex flex-col w-full  gap-1 relative">
+      <div className="flex flex-col w-full  gap-2">
+        <label htmlFor={channel} className="text-sm text-white">
           {teks}
         </label>
-        <input
-          type={type ?? 'text'}
-          className={`input focus:outline-none w-full max-w-xs ${errors[channel] ? ' input-error' : 'input-primary'}`}
-          placeholder={place}
-          {...register(channel, {
-            validate: {
-              must5character: (value:string) => (
-                value.length >= 5 || 'Harus lebih dar 5 caracter'
-              ),
-            },
-          })}
-        />
+        {require ? (
+          <input
+            type="email"
+            className={`input input-md  focus:outline-none text-white  ${errors[channel] ? 'input-error' : 'border-purple-700'}`}
+            placeholder={place}
+            {...register(channel, {
+              required: 'Email tidak boleh kosong',
+              pattern: {
+                // eslint-disable-next-line no-useless-escape
+                value: '^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$',
+                message: 'Invalid email address',
+              },
+              // validate: {
+              //   must5character: (value:string) => (
+              //     value.length >= 5 || 'Harus lebih dar 5 caracter'
+              //   ),
+              // },
+            })}
+          />
+        ) : (
+          <input
+            type="email"
+            className={`input input-md  focus:outline-none text-white  ${errors[channel] ? 'input-error' : 'border-purple-700'}`}
+            placeholder={place}
+            {...register(channel)}
+          />
+        )}
       </div>
-      <span className="text-red-600 text-[13px] font-[500]  ">
+      <span className="text-red-400 text-[12px]">
         {errors[channel]?.message}
       </span>
     </div>
