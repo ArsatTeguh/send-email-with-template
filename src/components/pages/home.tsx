@@ -5,6 +5,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Tinput } from '@/lib/register';
 import { fileToBuffer } from '@/lib/buffer';
 import Input from '../ui/input';
+import LoadingRocket from '../ui/loadingRocket';
 
 function HomePage() {
   const [err, setErr] = useState(false);
@@ -67,17 +68,20 @@ function HomePage() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="md:w-2/3 sm:w-5/6 w-full h-full py-8 grid sm:p-8 p-4 place-items-center gap-4 border border-purple-500 rounded-md relative">
-
+    <form onSubmit={handleSubmit(onSubmit)} className="md:w-2/3 sm:w-5/6 w-full h-full py-8 grid sm:p-8 p-3 place-items-center gap-4 border border-purple-500 rounded-md relative">
+      <LoadingRocket isLoading={loading} />
       {status && (
         <div role="alert" className={`alert flex items-center border-none fixed top-5 md:w-1/2 w-5/6 right-3 z-10 text-white font-medium ${!err ? 'shadow-neon bg-purple-800 ' : 'alert-error'}`}>
           <span> {status} </span>
         </div>
       )}
 
-      <div className="text-base text-yellow-500">وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوْعِ وَنَقْصٍ مِّنَ  الْاَمْوَالِ وَالْاَنْفُسِ وَالثَّمَرٰتِۗ وَبَشِّرِ الصّٰبِرِيْنَ
+      <div className="text-base text-justify text-yellow-500 flex flex-col gap-2">وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوْعِ وَنَقْصٍ مِّنَ  الْاَمْوَالِ وَالْاَنْفُسِ وَالثَّمَرٰتِۗ وَبَشِّرِ الصّٰبِرِيْنَ
         <br />
-        <p className="text-sm text-justify mt-1 mb-2 text-slate-100"> Dan Kami pasti akan menguji kamu dengan sedikit ketakutan, kelaparan, kekurangan harta, jiwa, dan buah-buahan. Dan sampaikanlah kabar gembira kepada orang-orang yang sabar,
+        <p className="text-sm text-justify mt-1 mb-2 text-slate-100"> Dan Kami pasti akan menguji kamu dengan sedikit ketakutan, kelaparan, kekurangan harta, jiwa, dan buah-buahan. Dan sampaikanlah kabar gembira kepada orang-orang yang sabar, {' '}
+          <span className="text-yellow-500">
+            (Surah: Al-Baqarah 155)
+          </span>
         </p>
       </div>
       <Input {...inputEmail} />

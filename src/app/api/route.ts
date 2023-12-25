@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import mustache from 'mustache';
 import nodemailer from 'nodemailer';
+import { splitNameEmail } from '@/lib/splitNameEmail';
 
 const password = process.env.BURNER_PASSWORD;
 const myEmail = process.env.PERSONAL_EMAIL;
@@ -15,12 +16,14 @@ export async function POST(request: Request) {
     'templateEmail.html',
   );
   const source = fs.readFileSync(emailTemplatePath, 'utf-8');
+
   try {
     const {
       email, ccEmail, job, media, file,
     } = await request.json();
+
     const data = {
-      penerima: email.split('@')[0],
+      penerima: splitNameEmail(email),
       job,
       media,
     };
