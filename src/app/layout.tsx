@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Metadata } from 'next';
-import './globals.css';
 import { Poppins } from 'next/font/google';
+import React from 'react';
+import './globals.css';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -11,6 +11,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Template Email',
   description: 'Web pengirim pesan Email mulai dari teks sampai file, dengan berbagai template yang disediakan',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
