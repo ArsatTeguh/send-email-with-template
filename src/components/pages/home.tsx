@@ -100,6 +100,12 @@ function HomePage() {
           <option value="Front End Enginer">Front End Enginer</option>
           <option value="Fullstack Javascript">Fullstack Javascript</option>
           <option value="Web Developer">Web Developer</option>
+          <option value="Fullstack Developer">Fullstack Developer</option>
+          <option value="Backend Node js Developer">Backend Node js Developer</option>
+          <option value="Node js Developer">Node js Developer</option>
+          <option value="Backend Enginer">Backend Enginer</option>
+          <option value="Next Js Developer">Next Js Developer</option>
+          <option value="IT Programmer">IT Programmer</option>
         </select>
       </label>
       <label htmlFor="job" className="form-control w-full ">
@@ -114,6 +120,7 @@ function HomePage() {
           <option value="Facebook">Facebook</option>
           <option value="Linkedin">Linkedin</option>
           <option value="Instagram">Instagram</option>
+          <option value="Telegram">Telegram</option>
         </select>
       </label>
       <label htmlFor="file" className="form-control w-full  ">
