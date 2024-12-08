@@ -61,8 +61,10 @@ function HomePage() {
     } catch (error: any) {
       setErr(true);
       setStatus(error.message);
+    } finally {
+      setloading(false);
     }
-    setloading(false);
+
     const time = setTimeout(() => setStatus(null), 3000);
     return () => clearTimeout(time);
   };
@@ -106,6 +108,8 @@ function HomePage() {
           <option value="Backend Enginer">Backend Enginer</option>
           <option value="Next Js Developer">Next Js Developer</option>
           <option value="IT Programmer">IT Programmer</option>
+          <option value="Backend Golang">Backend Golang</option>
+          <option value="Golang Developer">Golang Developer</option>
         </select>
       </label>
       <label htmlFor="job" className="form-control w-full ">
